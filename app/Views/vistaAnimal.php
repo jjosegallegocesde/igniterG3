@@ -32,13 +32,41 @@
                         <input type="number" class="form-control" id="edad" name="edad">
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Agregar</button>
-                        
-                    
-                    <h5 class="text-center"><?php echo(session('mensaje')) ?></h5>
+
+                    <h5 class="text-center mt-4"><?php echo(session('mensaje')) ?></h5>
 
                 </form>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-striped table-dark">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NOMBRE</th>
+                            <th>COMIDA</th>
+                            <th>EDAD</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <?php foreach($animales as $clave=>$valor):?>
+
+                           <h1>juan</h1>
+
+                        <?php endforeach?>
+                       
+                    
+                    </tbody>
+                
+                </table>
+            </div>
+        </div>
+
+
+
     </div>
 
 
