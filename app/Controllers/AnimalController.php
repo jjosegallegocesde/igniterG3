@@ -2,7 +2,6 @@
 
 use App\Models\AnimalModel;
 
-
 class AnimalController extends BaseController {
     
     public function index() {
@@ -35,6 +34,38 @@ class AnimalController extends BaseController {
 		
 
 	}
+
+	public function eliminar($id){
+
+		$animalModel= new AnimalModel();
+
+		$animalModel->where('id',$id)->delete();
+
+		return redirect()->to(base_url('public/animales'));
+
+	}
+
+	public function modificar($id){
+
+		$animalModel= new AnimalModel();
+		
+		$comida= $this->request->getPost('comida2');
+		$edad = $this->request->getPost('edad2');
+
+
+		$animalModel->update($id,[
+			'comida'=>$comida,
+			'edad'=>$edad
+		]);
+		
+		return redirect()->to(base_url('public/animales'));
+
+
+	}
+
+	
+
+	
 
 	
 

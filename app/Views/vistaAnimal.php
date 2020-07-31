@@ -12,6 +12,8 @@
 
     <h1 class="text-center">HOLA MUCHACHOS</h1>
 
+    
+
     <img src="<?php echo(base_url('public/img/lion.png')) ?>" alt="nombre1" class="mx-auto d-block">
     
     
@@ -51,20 +53,59 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
                         <?php foreach($animales as $clave=>$valor):?>
-
-                           <h1>juan</h1>
+                            
+                            <tr>
+                                <td><?php echo($valor->id)?></td>
+                                <td><?php echo($valor->nombre)?></td>
+                                <td><?php echo($valor->comida)?></td>
+                                <td><?php echo($valor->edad)?></td>
+                                <td><a href="" class="btn btn-danger">Eliminar</a></td>
+                            </tr>
 
                         <?php endforeach?>
-                       
-                    
                     </tbody>
                 
                 </table>
             </div>
         </div>
 
+        <div class="row">
+            <div class="row row-cols-1 row-cols-md-3">
+            <?php foreach($animales as $clave=>$valor):?>
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <img src="<?php echo(base_url('public/img/safari.png'))?>" class="card-img-top" alt="safari">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo($valor->nombre) ?></h5>
+                            <p><?php echo( $valor->nombre." Es un animal de ".$valor->edad." años") ?></p>
+                            <a href="<?php echo(base_url('public/animales/eliminar/'.$valor->id))?>" class="btn btn-danger">Eliminar</a>
+
+                            <a class="btn btn-info" data-toggle="collapse" href="#formulario<?php echo($valor->id)?>" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                Actualizar
+                            </a>
+
+                            <div class="collapse" id="formulario<?php echo($valor->id)?>">
+                                <form action="<?= base_url('public/animales/modificar/'.$valor->id)?>" method="POST" class="mt-3">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="comida2" name="comida2" value="<?= $valor->comida ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="number" class="form-control" id="edad2" name="edad2" value="<?= $valor->edad?>">
+                                    </div>
+                                    <button type="submit" class="btn btn-info btn-block">Enviar</button>
+                                </form>
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach?>
+        
+        </div>
+
+       
 
 
     </div>

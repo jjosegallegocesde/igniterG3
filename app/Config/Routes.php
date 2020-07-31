@@ -33,6 +33,9 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/animales', 'AnimalController::index');
 $routes->post('/animales/crear', 'AnimalController::crear');
+$routes->get('/animales/eliminar/(:any)', 'AnimalController::eliminar/$1');
+$routes->post('/animales/modificar/(:any)', 'AnimalController::modificar/$1');
+
 
 
 
